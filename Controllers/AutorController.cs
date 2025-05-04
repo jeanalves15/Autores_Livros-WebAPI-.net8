@@ -1,4 +1,5 @@
-﻿using Livro_Autores_WebAPI8.Models;
+﻿using Livro_Autores_WebAPI8.DTO;
+using Livro_Autores_WebAPI8.Models;
 using Livro_Autores_WebAPI8.Services.Autor;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -34,5 +35,25 @@ namespace Livro_Autores_WebAPI8.Controllers
             var autor = await _IautorInterface.BuscarAutorIdLivro(idLivro);
             return Ok(autor);
         }
+        [HttpPost("CriarAutor")]
+
+        public async Task<ActionResult<ResponseModel<List<AutorModel>>>> CriarAutor(AutorCriacaoDto autorCriacaoDto)
+        {
+            var autores = await _IautorInterface.CriarAutor(autorCriacaoDto);
+            return Ok(autores);
+        }
+        [HttpPut("EditarAutor/{idLivro}")]
+        public async Task<ActionResult<ResponseModel<List<AutorModel>>>> EditarAutor(AutorEdicaoDTO autorEdicaoDTO)
+        {
+            var autores = await _IautorInterface.EdicaoAutor(autorEdicaoDTO);
+            return Ok(autores);
+        }
+        [HttpDelete("ExcluirAutor")]
+        public async Task<ActionResult<ResponseModel<List<AutorModel>>>> EditarAutor(int idAutor)
+        {
+            var autores = await _IautorInterface.ExcluirAutor(idAutor);
+            return Ok(autores);
+        }
+
     }
 }

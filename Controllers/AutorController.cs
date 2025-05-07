@@ -49,11 +49,12 @@ namespace Livro_Autores_WebAPI8.Controllers
             return Ok(autores);
         }
         [HttpDelete("ExcluirAutor")]
-        public async Task<ActionResult<ResponseModel<List<AutorModel>>>> EditarAutor(int idAutor)
+        public async Task<ActionResult<ResponseModel<List<AutorModel>>>> ExcluirAutor(int idAutor)
         {
             var autores = await _IautorInterface.ExcluirAutor(idAutor);
             return Ok(autores);
         }
+
 
     }
 }

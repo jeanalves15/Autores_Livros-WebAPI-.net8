@@ -26,9 +26,9 @@ namespace Livro_Autores_WebAPI8.Services.Autor
                     ? "Sua lista de autores está vazia."
                     : "Todos os autores foram coletados!";  
             }
-            catch (Exception ex)
+            catch 
             {
-                resposta.Mensage = ex.Message;
+                
                 resposta.Status = false;                                
             }
             return resposta;

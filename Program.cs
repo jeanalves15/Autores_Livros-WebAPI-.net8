@@ -1,5 +1,6 @@
 using Livro_Autores_WebAPI8.Context;
 using Livro_Autores_WebAPI8.Services.Autor;
+using Livro_Autores_WebAPI8.Services.Livro;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +17,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         new MySqlServerVersion(new Version(8, 0, 3))
     ));
 builder.Services.AddScoped<IAutorInterface, AutorService>();
+builder.Services.AddScoped<ILivroInterface, LivroService>();
 
 var app = builder.Build();
 
